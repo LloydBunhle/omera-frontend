@@ -1,0 +1,32 @@
+<div class=" bg">
+  <nav class="navbar navbar-light bg-light text-white">
+    <a class="navbar-brand text-white" href="#">OMERA</a>
+  </nav>
+  <div container>
+    <div class="row ">
+      <div class="col">
+       
+      </div>
+      <div class="col-4 log" >
+        <h1 class="display-4">Login</h1>
+          <form [formGroup]="loginForm" >
+              <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="email" class="form-control" formControlName="username" >
+              </div>
+              <div class="form-group"> 
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" formControlName="password">
+              </div>
+              <div class="form-group">
+                <a  class="form-text " routerLink="register-page"> Not Registered ? Click here register.</a><br> 
+                <button type="button" class="btn btn-outline-danger" (click)="onSubmit()">Login</button>
+              </div>
+            </form>
+
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+</div>
