@@ -6,3 +6,7 @@ button.btn.btn-outline-danger {
     color: white !important;
     border-color: white !important;
 }
+.bg-light {
+    background-color: #461a29!important;
+    color: white !important;
+}

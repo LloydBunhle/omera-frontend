@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +12,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-
+import { FooterComponent } from './footer/footer.component';
+import { RequestMapComponent } from './request-map/request-map.component';
+import { AgmCoreModule } from '@agm/core';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     RegistrationComponent,
     NavbarComponent,
     UserDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    FooterComponent,
+    RequestMapComponent
   ],
   imports: [
     RouterModule,
@@ -30,9 +35,13 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     HttpClientModule,
     AppRoutingModule,
     TabsModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAiXDp6kzNL0-PEcOjyewGMTFQ40rdlwWw',
+      libraries: ['places']
+    })
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
