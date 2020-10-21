@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AuthenticationServiceService} from '../services/authentication-service.service'
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
   public returnUrl: string;
 
   constructor( private formBuilder: FormBuilder,
+    private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private router: Router,private auth : AuthenticationServiceService) { 
       // redirect to home if already logged in
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
         return;
     }
-
+    this.spinner.show();
     this.auth.login(this.loginForm.value)
         .subscribe(
             data => {

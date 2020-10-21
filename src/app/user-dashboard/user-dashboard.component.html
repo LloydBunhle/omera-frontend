@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="jumbotron jumbotron-fluid bg">
     <div class="container">
-        <h1 class="display-4 text-white">Wellcome back {{profile[0].username}} </h1>
+        <h1 class="display-4 text-white">Hello {{profile[0].username}} !</h1>
     </div>
 </div>
 <div class="container">
@@ -11,11 +11,10 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                         <ul class="list-groups profile list-group-flush">
-                            <li class="list-group-item"><h4 class="card-subtitle mb-2 text-muted">{{profile[0].username}}</h4></li>
-                            <li class="list-group-item">{{profile[0].firstName}}</li>
-                            <li class="list-group-item">{{profile[0].lastName}}</li>
-                            <li class="list-group-item">{{profile[0].email}}</li>
-                            <li class="list-group-item">{{profile[0].phoneNumber}}</li>
+                            <li class="list-group-item text-muted">{{profile[0].firstName}}</li>
+                            <li class="list-group-item text-muted">{{profile[0].lastName}}</li>
+                            <li class="list-group-item text-muted">{{profile[0].email}}</li>
+                            <li class="list-group-item text-muted">{{profile[0].phoneNumber}}</li>
                           </ul>
                 </div>
             </div>
@@ -32,7 +31,9 @@
             <div class="tab-pane active" id="home" role="tabpanel">
                 <app-request-map></app-request-map>
             </div>
-            <div class="tab-pane" id="profile" role="tabpanel">.vvdfvddf..</div>
+            <div class="tab-pane" id="profile" role="tabpanel">
+                <app-update-profile></app-update-profile>
+            </div>
             <div class="tab-pane" id="messages" role="tabpanel">.fbfbfbfd..</div>
             <div class="tab-pane" id="settings" role="tabpanel">
                 What is Lorem Ipsum?
@@ -47,3 +48,4 @@
     </div>
 
 </div>
+<app-footer class="mt-auto"></app-footer>

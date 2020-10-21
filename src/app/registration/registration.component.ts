@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegistrationService } from '../services/registration.service'
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -34,6 +35,16 @@ export class RegistrationComponent implements OnInit {
     }, () => {
       console.log("something went wrong")
     })
+    this.alertMessage()
+   this.registerUser.reset()
 
   }
+
+  public alertMessage(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Succesfully registered',
+    })
+  }
+  
 }

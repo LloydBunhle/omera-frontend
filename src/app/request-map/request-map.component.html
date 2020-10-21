@@ -7,13 +7,11 @@
     </div>
 
     <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-        <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
-            (dragEnd)="markerDragEnd($event)"></agm-marker>
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
     </agm-map>
+ <hr>
+    <h5 class="mt-4">Address: {{address}}</h5>
 
-    <h5>Address: {{address}}</h5>
+    <button type="button" class="btn btn-secondary btn-lg btn-block btn-sm" (click)="requestMarchanic()">Reguest Machanic</button>
 
-    <button type="button" class="btn btn-secondary btn-lg btn-block btn-sm">Reguest Machanic</button>
-    <!-- <div>Latitude: {{latitude}}</div>
-    <div>Longitude: {{longitude}}</div> -->
 </div>
