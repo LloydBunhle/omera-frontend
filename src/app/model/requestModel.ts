@@ -1,8 +1,7 @@
 export class RequestModel {
-    firstName:  string;
+    firstName:  any;
     lastName:  string;
     email: string;
-    username:  string;
     phoneNumber: string;
-    Address:string;
+    location:string;
 }

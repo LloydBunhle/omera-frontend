@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileService} from '../services/profile.service'
+import {RequestMachanicService} from '../services/request-machanic.service'
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',
@@ -7,14 +8,21 @@ import {ProfileService} from '../services/profile.service'
 })
 export class UserDashboardComponent implements OnInit {
 public profile : any[]= [];
-  constructor(private Userprofile :ProfileService) { }
+public history = [];
+public userMail = localStorage.getItem("email")
+  constructor(private Userprofile :ProfileService,private statushistory:RequestMachanicService) { }
 
   ngOnInit(): void {
-    this.Userprofile.getUserProfile().subscribe(data => {
-       this.profile.push(data) 
-      console.log(this.profile);
-
+    this.Userprofile.getUserProfile().subscribe((data:any []) => {
+      this.profile = data
+      console.log(this.profile)
     })
+    
+    this.statushistory.getUserRistory(this.userMail).subscribe((data:any []) => {
+      this.history = data;
+      console.log(this.history)
+    })
+  
   }
 
 }

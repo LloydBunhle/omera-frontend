@@ -3,6 +3,8 @@ import { MapsAPILoader, } from '@agm/core';
 import { RequestModel } from '../model/requestModel'
 import { ProfileService } from '../services/profile.service';
 import Swal from 'sweetalert2'
+import {RequestMachanicService} from '../services/request-machanic.service'
+
 @Component({
   selector: 'app-request-map',
   templateUrl: './request-map.component.html',
@@ -22,7 +24,8 @@ export class RequestMapComponent implements OnInit {
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private Userprofile: ProfileService
+    private Userprofile: ProfileService,
+    private makeRequest :RequestMachanicService,
   ) {}
 
 
@@ -97,15 +100,20 @@ export class RequestMapComponent implements OnInit {
   }
 
   public requestMarchanic() {
-    let request = {
+    const  request : RequestModel = {
       firstName: this.profile[0].firstName,
       lastName: this.profile[0].lastName,
       email: this.profile[0].email,
       phoneNumber: this.profile[0].phoneNumber,
-      Address: this.address,
+      location: this.address,
     }
-   this.alertMessage()
-    console.log(request);
+    this.makeRequest.requestMachanic(request).subscribe(data =>{
+      console.log(data)
+      this.alertMessage()
+   
+    })
+
+    location.reload();
   }
   
   public alertMessage(){
@@ -113,7 +121,7 @@ export class RequestMapComponent implements OnInit {
       icon: 'success',
       title: 'Your request is submitted',
     })
-    
+  
   }
 }
 
