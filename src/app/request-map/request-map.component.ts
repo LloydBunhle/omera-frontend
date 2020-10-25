@@ -110,6 +110,7 @@ export class RequestMapComponent implements OnInit {
     this.makeRequest.requestMachanic(request).subscribe(data =>{
       console.log(data)
       this.alertMessage()
+      window.location.reload();
    
     })
 
