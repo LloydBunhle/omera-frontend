@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit {
                this.router.navigate(['/admin'])
              }else{
               this.router.navigate([this.returnUrl]);
-              console.log(data.role)
+              console.log(data)
               localStorage.setItem("email",data.email)
              }
-                
+                this.spinner.hide()
             },
             error => {
                 console.log("err",error);

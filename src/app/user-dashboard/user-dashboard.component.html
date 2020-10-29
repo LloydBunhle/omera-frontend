@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="jumbotron jumbotron-fluid bg">
     <div class="container">
-        <h1 class="display-4 text-white">Hello {{profile.username}} !</h1>
+        <h1 class="display-4 text-white">Hello {{profile[0].username}} !</h1>
     </div>
 </div>
 <div class="container">
@@ -10,11 +10,11 @@
         <div class="list-group shadow p-3 mb-5 bg-white" id="myList" role="tablist">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                        <ul class="list-groups profile list-group-flush">
-                            <li class="list-group-item text-muted">{{profile.firstName}}</li>
-                            <li class="list-group-item text-muted">{{profile.lastName}}</li>
-                            <li class="list-group-item text-muted">{{profile.email}}</li>
-                            <li class="list-group-item text-muted">{{profile.phoneNumber}}</li>
+                        <ul class="list-groups profile list-group-flush" *ngFor="let user of profile">
+                            <li class="list-group-item text-muted">{{user.firstName}}</li>
+                            <li class="list-group-item text-muted">{{user.lastName}}</li>
+                            <li class="list-group-item text-muted">{{user.email}}</li>
+                            <li class="list-group-item text-muted">{{user.phoneNumber}}</li>
                           </ul>
                 </div>
             </div>

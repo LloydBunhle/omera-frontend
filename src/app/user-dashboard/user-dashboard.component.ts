@@ -7,15 +7,17 @@ import {RequestMachanicService} from '../services/request-machanic.service'
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-public profile : any[]= [];
+public profile :any[]= [];
 public history = [];
 public userMail = localStorage.getItem("email")
+public username ;
   constructor(private Userprofile :ProfileService,private statushistory:RequestMachanicService) { }
 
   ngOnInit(): void {
-    this.Userprofile.getUserProfile().subscribe((data:any []) => {
-      this.profile = data
+    this.Userprofile.getUserProfile().subscribe((data:any[]) => {
+      this.profile.push(data)
       console.log(this.profile)
+
     })
     
     this.statushistory.getUserRistory(this.userMail).subscribe((data:any []) => {
