@@ -5,6 +5,8 @@ import { AuthGuard } from './helpers/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { Role } from './model/role';
 import { RegistrationComponent } from './registration/registration.component';
+import { RequestStatusComponent } from './request-status/request-status.component';
+import { SendInvoiceComponent } from './send-invoice/send-invoice.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
@@ -21,6 +23,20 @@ const routes: Routes = [
         component: UserDashboardComponent,
         canActivate: [AuthGuard],
         data: { roles: [Role.User] }
+    },
+    {
+      path: 'changeStatus/:id',
+      component : RequestStatusComponent,
+      canActivate: [AuthGuard],
+        data: { roles: [Role.Admin]}
+
+    },
+    {
+      path: 'send-invoice/:id',
+      component : SendInvoiceComponent,
+      canActivate: [AuthGuard],
+        data: { roles: [Role.Admin]}
+
     }
   
 ];

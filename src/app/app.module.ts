@@ -19,6 +19,11 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { RequestStatusComponent } from './request-status/request-status.component';
+import { SendInvoiceComponent } from './send-invoice/send-invoice.component';
+import { ViewAllMechanicsComponent } from './view-all-mechanics/view-all-mechanics.component';
+import { AddNewMechanicComponent } from './add-new-mechanic/add-new-mechanic.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -30,12 +35,17 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AdminDashboardComponent,
     FooterComponent,
     RequestMapComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    RequestStatusComponent,
+    SendInvoiceComponent,
+    ViewAllMechanicsComponent,
+    AddNewMechanicComponent
   ],
   imports: [
     RouterModule,
     BrowserModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
