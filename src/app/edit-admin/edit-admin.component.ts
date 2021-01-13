@@ -35,16 +35,16 @@ export class EditAdminComponent implements OnInit {
     })
   }
 
-  // public onSubmit() {
-  //   this.admiRequest.updateMechanic(this.updateUser.value).subscribe(data => {
-  //     console.log("successfully updated")
-  //     this.router.navigate(['/admin']);
-  //     this.alertMessage()
-  //   }, err => {
-  //     console.log(err)
-  //   })
+  public onSubmit() {
+    this.admiRequest.updateAdmin(this.updateUser.value).subscribe(data => {
+      console.log("successfully updated")
+      this.router.navigate(['/admin']);
+      this.alertMessage()
+    }, err => {
+      console.log(err)
+    })
 
-  // }
+  }
   public alertMessage(){
     Swal.fire({
       icon: 'success',
