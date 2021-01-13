@@ -4,13 +4,12 @@ import { RegistrationService } from '../services/registration.service'
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  selector: 'app-add-admin',
+  templateUrl: './add-admin.component.html',
+  styleUrls: ['./add-admin.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class AddAdminComponent implements OnInit {
   public registerUser: FormGroup;
   constructor(private formBuilder: FormBuilder, private registerService: RegistrationService,private router: Router) { }
 
@@ -31,16 +30,13 @@ export class RegistrationComponent implements OnInit {
 
   public onSubmit() {
     console.log(this.registerUser.value)
-    this.registerService.registerUser(this.registerUser.value).subscribe(data => {
+    this.registerService.addNewAdmin(this.registerUser.value).subscribe(data => {
       console.log(data)
     }, () => {
       console.log("something went wrong")
     })
     this.alertMessage()
    this.registerUser.reset()
-   this.router.navigate(['/']);
-
-
   }
 
   public alertMessage(){
@@ -50,4 +46,5 @@ export class RegistrationComponent implements OnInit {
     })
   }
   
+
 }

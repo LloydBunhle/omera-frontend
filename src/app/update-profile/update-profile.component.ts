@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-profile',
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2'
 })
 export class UpdateProfileComponent implements OnInit {
   public updateUser: FormGroup;
-  constructor(private formBuilder: FormBuilder, private Userprofile: ProfileService,) { }
+  constructor(private formBuilder: FormBuilder, private Userprofile: ProfileService,private router: Router) { }
 
   ngOnInit(): void {
     this.Userprofile.getUserProfile().subscribe(data => {

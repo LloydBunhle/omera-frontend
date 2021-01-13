@@ -41,4 +41,12 @@ export class AdminModuleService {
   public deleteMechanic(id:string){
     return this.httpClient.delete(environment.url+"mechanic/removeMechanic/"+id);
   }
+
+  public getMechenicById(id:string){
+    return this.httpClient.get(environment.url+"mechanic/getMechanicById/"+id);
+  }
+
+  public updateMechanic(updateMech:MechanicModel){
+    return this.httpClient.put(environment.url+"mechanic/updateMechanic",updateMech)
+  }
 }

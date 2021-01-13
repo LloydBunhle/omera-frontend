@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { EditAdminComponent } from './edit-admin/edit-admin.component';
+import { EditMechanicComponent } from './edit-mechanic/edit-mechanic.component';
 import { AuthGuard } from './helpers/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { Role } from './model/role';
@@ -37,6 +39,18 @@ const routes: Routes = [
       canActivate: [AuthGuard],
         data: { roles: [Role.Admin]}
 
+    },
+    {
+      path:'edit-mecchanic/:id',
+      component : EditMechanicComponent,
+      canActivate :[AuthGuard],
+       data: {roles : [Role.Admin]}
+    },
+    {
+      path:'edit-admin/:id',
+      component:EditAdminComponent,
+      canActivate :[AuthGuard],
+       data: {roles : [Role.Admin]}
     }
   
 ];

@@ -24,6 +24,10 @@ import { SendInvoiceComponent } from './send-invoice/send-invoice.component';
 import { ViewAllMechanicsComponent } from './view-all-mechanics/view-all-mechanics.component';
 import { AddNewMechanicComponent } from './add-new-mechanic/add-new-mechanic.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { EditMechanicComponent } from './edit-mechanic/edit-mechanic.component';
+import { ViewAdminComponent } from './view-admin/view-admin.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
+import { EditAdminComponent } from './edit-admin/edit-admin.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
     RequestStatusComponent,
     SendInvoiceComponent,
     ViewAllMechanicsComponent,
-    AddNewMechanicComponent
+    AddNewMechanicComponent,
+    EditMechanicComponent,
+    ViewAdminComponent,
+    AddAdminComponent,
+    EditAdminComponent
   ],
   imports: [
     RouterModule,

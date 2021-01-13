@@ -33,7 +33,7 @@
           </table>
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </tab>
-      <tab heading="VIEW LIST OF MECHANICS">
+      <tab heading="LIST OF MECHANICS">
         <app-view-all-mechanics></app-view-all-mechanics>
       </tab>
       <tab heading="ADD A NEW MECHANIC">
@@ -41,6 +41,12 @@
           Please note all fields marked with (*) are compulsary !
         </div>
         <app-add-new-mechanic></app-add-new-mechanic>
+      </tab>
+      <tab heading="LIST OF ADMIN">
+       <app-view-admin></app-view-admin>
+      </tab>
+      <tab heading="ADD NEW ADMIN">
+        <app-add-admin></app-add-admin>
       </tab>
     </tabset>
   </div>
