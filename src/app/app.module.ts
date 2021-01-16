@@ -61,7 +61,7 @@ import { EditAdminComponent } from './edit-admin/edit-admin.component';
     SweetAlert2Module.forRoot(),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAiXDp6kzNL0-PEcOjyewGMTFQ40rdlwWw',
+      apiKey: 'AIzaSyDyq2qd0WOFvNe4efSY8P29qSX8s_WSQF4',
       libraries: ['places']
     }),
     NgxSpinnerModule

@@ -50,6 +50,7 @@ export class SendInvoiceComponent implements OnInit {
     })
     this.admiRequest.sendInvoice(this.updateUser.value).subscribe(data => {
       this.alertMessage()
+      console.log(data)
       this.router.navigate(['/admin'])
     }, err => {
       console.log(err)

@@ -29,6 +29,12 @@ export class AddAdminComponent implements OnInit {
   }
 
   public onSubmit() {
+
+     // stop here if form is invalid
+     if (this.registerUser.invalid) {
+      this.ErrotMessage()
+      return;
+    }
     console.log(this.registerUser.value)
     this.registerService.addNewAdmin(this.registerUser.value).subscribe(data => {
       console.log(data)
@@ -46,5 +52,10 @@ export class AddAdminComponent implements OnInit {
     })
   }
   
-
+  public ErrotMessage() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Please complete all the fields !',
+    })
+  }
 }

@@ -30,6 +30,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   public onSubmit() {
+    // stop here if form is invalid
+    if (this.registerUser.invalid) {
+      this.ErrotMessage()
+      return;
+    }
     console.log(this.registerUser.value)
     this.registerService.registerUser(this.registerUser.value).subscribe(data => {
       console.log(data)
@@ -47,6 +52,12 @@ export class RegistrationComponent implements OnInit {
     Swal.fire({
       icon: 'success',
       title: 'Succesfully registered',
+    })
+  }
+  public ErrotMessage() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Please complete all the fields !',
     })
   }
   
